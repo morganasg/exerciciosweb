@@ -2,61 +2,68 @@ body {
 	font-family: sans-serif;
     background-attachment: fixed;
     background-image: url("img/bg.png");
-    background-color: #fff;
-    background-position: relative;
-
+    background-color: #ffffff;
+	background-position: top;
+	background-repeat: repeat-x;
+	margin: 0;
+	padding: 0;
 }
 
 main {
     height: 100%;
-    width: 80%;
-    background-color: white;
+    width: 70%;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 1em 2em;
-    margin: 3em 5em 1em 10em;
+    margin: 3em auto;
     text-align: justify;
 }
+
 h2{
 	color:#547A82;
 	font-size: 17px;
 }
 
-header > div > div{
+/*============== Banner ============== */
+.banner{
+	width: 70%;
+	margin: auto;
+	padding: 1em 2em;
+}
+.banner > .banner-titulo{
+	width: 24.5em;
+}
+.banner > .banner-titulo > div{
     font-size: 25px;
     color:#fff;
     text-shadow: 2px 2px 6px;
-    margin-left: 6.5em;
     font-weight: bold;
 }
-header .banner{
-	background-attachment: fixed;
-}
-div> div > span{
+.banner > .banner-titulo > div > span{
 	text-decoration: line-through;
 }
-
-.reclamacao1{
+.banner > .banner-titulo > .reclamacao1{
 	color:#fff;
 	font-size: 10px;
-	margin-left: 29.5em;
+	float: right;
+	margin-top: .2em;
 }
-
-.glink{
-	
+.banner .glink{
 	font-size: 15px;
 	float: right;
-	
-
 }
 
-header > p {
+
+
+/*============== Main ============== */
+main .post-header > p {
 	font-size: 10px;
 	float: right;
-	margin: -60px -10px 0px 1em;
 }
 div.new-comment-container{
 	margin: 1em;
 }
+
 article.comment-article{
 	display: inline-block;
 }
@@ -78,15 +85,14 @@ article.comment-article{
     display: inline-block;
     font-family: monospace;
 }
+
 .comment-text p{
 	margin-left: 0px;
 	margin-top: 0px;
-
 }
 
 .new-comment-container-box{
 	margin: 10px;
-
 }
 
 .avatar{
@@ -94,8 +100,6 @@ article.comment-article{
 	width: 65px;
 	height: 65px;
 	display: inline-block;
-
-
 }
 
 .avatar.avatar-kitty{
