@@ -1,0 +1,148 @@
+body {
+	font-family: sans-serif;
+    background-attachment: fixed;
+    background-image: url("img/bg.png");
+    background-color: #ffffff;
+	background-position: top;
+	background-repeat: repeat-x;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+    height: 100%;
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1em 2em;
+    margin: 3em auto;
+    text-align: justify;
+}
+
+h2{
+	color:#547A82;
+	font-size: 17px;
+}
+
+/*============== Banner ============== */
+.banner{
+	width: 70%;
+	margin: auto;
+	padding: 1em 2em;
+}
+.banner > .banner-titulo{
+	width: 24.5em;
+}
+.banner > .banner-titulo > div{
+    font-size: 25px;
+    color:#fff;
+    text-shadow: 2px 2px 6px;
+    font-weight: bold;
+}
+.banner > .banner-titulo > div > span{
+	text-decoration: line-through;
+}
+.banner > .banner-titulo > .reclamacao1{
+	color:#fff;
+	font-size: 10px;
+	float: right;
+	margin-top: .2em;
+}
+.banner .glink{
+	font-size: 15px;
+	float: right;
+}
+
+
+
+/*============== Main ============== */
+main .post-header > p {
+	font-size: 10px;
+	float: right;
+}
+div.new-comment-container{
+	margin: 1em;
+}
+
+article.comment-article{
+	display: inline-block;
+}
+
+.comment-article a{
+	margin-left: 5em;
+}
+
+.comment-text{
+	background-color: #40A3F7;
+    border-radius: 0px 13px 13px 13px;
+	border:1px solid #40A3F7;
+	color: #fff;
+	margin-left: 90px;
+    margin-top: 15px;
+    width: 355px;
+    font-size: 13px;
+    text-align: justify;
+    display: inline-block;
+    font-family: monospace;
+}
+
+.comment-text p{
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.new-comment-container-box{
+	margin: 10px;
+}
+
+.avatar{
+	background-image: url("img/avatar_sprites.jpg");
+	width: 65px;
+	height: 65px;
+	display: inline-block;
+}
+
+.avatar.avatar-kitty{
+	background-position: -130px 0px;
+
+}
+
+.avatar.avatar-robot{
+	background-position: -130px -63px;
+}
+
+.avatar.avatar-america{
+	background-position: -66px -66px;
+}
+
+
+form textarea{
+	background-color: #40A3F7;
+    border-radius: 0px 13px 13px 13px;
+	border:1px solid #40A3F7;
+	color: #fff;
+	width: 355px;
+    height: 125px;
+    margin-left: 5em;
+    margin-top: -4em;
+}
+
+input{
+    color: white;
+    width: 55px;
+    height: 25px;
+    border-radius: 3px;
+    background-color:#547A82;
+    border:1px solid #547A82;
+    float: right;
+    margin-right: 77.5em;
+
+}
+
+
+footer{
+	font-size: 10px;
+	text-align: center;
+}
+
+
