@@ -9,13 +9,18 @@ body {
 
 /*============== Main ============== */
 main {
-    height: 70%;
-    width: 85%;
+	margin-right: 7%;
+    margin-top: .333333333in;
+    margin-left: 7%;
     background-color: #ffffff;
+
+	
+	/* height: 70%;
+    width: 85%;
     border-radius: 10px;
     padding: 1em 1em;
     margin: 1em auto;
-    text-align: left;
+    text-align: left; */
 }
 main .post-header > p {
 	font-size: 10px;
@@ -43,9 +48,18 @@ h2{
 }
 
 hr {
+	border-left-color: #6da4b7;
+	border-bottom-color: #6da4b7;
 	margin-top: 1em;
 	margin-left: 1.2em;
 	border-color: #6da4b7;
+}
+
+.assunto {
+    background-color: ghostwhite;
+    border-radius: .125in;
+    padding-left: .3125in;
+    padding-top: 18pt;
 }
 
 /*============== Banner ============== */
@@ -80,11 +94,17 @@ hr {
 	font-size: 13px;
 }
  .glink{
-	float: right;
+    right: 12pt;
+    top: 24px;
+    position: absolute;
+    color: black;
+
+
+	/* float: right;
 	margin-right: -5em;
 	font-size: 16px;
 	color: #f0f;
-	margin-top:-40px;
+	margin-top:-40px; */
 }
 
 /*============== Avatar ============== */
@@ -180,23 +200,40 @@ div.new-comment-container{
 
 /*============== Button ============== */
 input{
-    color: white;
-    width: 55px;
-    height: 25px;
-    border-radius: 3px;
-    background-color:#547A82;
-    border:1px solid #547A82;
-    float: right;
-    margin-right: 89em;
-
+    color:#fff;
+	background-color: #547a82;
+    font-size: 1.1em;
+    font-family: Arial;
+    border-left-width: 0pc;
+    border-bottom-width: 0pc;
+    border-right-width: 0pc;
+    border-top-width: 0pc;
+	padding-bottom: .041666667in;
+    border-left-color: black;
+    padding-left: 12px;
+    border-bottom-color: black;
+    position: relative;
+    border-right-color: black;
+    border-top-color: black;
+    padding-right: 12px;
+    padding-top: 3pt;
+    border-radius: .041666667in;
 }
+
+[class~=new-comment-container-box] > input {
+    margin-top: 3pt;
+    float: right;
+}
+input[type=submit]:hover, .comment-text {
+	background-color: #40a3f7;
+}
+
 
 /*============== Footer ============== */
 footer{
-	font-size: 10px;
 	text-align: center;
-	height: auto;
-	width: auto;
-	margin: 1em;
-
+	margin-top: 18.75px;
+}
+small {
+    font-size: x-small;
 }

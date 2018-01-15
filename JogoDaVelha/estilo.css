@@ -1,0 +1,65 @@
+
+#jogo{
+    width:603px;
+    height:603px;
+    border:solid 3px;
+    color: #CD1076;
+}
+
+#title{
+    color: #CD1076;
+    margin-left: 150px;;
+    text-shadow: 3px 2p #ffffff;
+    font-family: 'Patrick Hand SC', cursive;
+   
+}
+
+.corpo{
+    margin-left: 600px;
+}
+
+.linha{
+    height:200px;
+    border-bottom:solid 1px;
+}
+
+/*============== Campo ============== */
+.campo{
+    width:200px;
+    height:100%;
+    border-right:solid 1px;
+    float:left;
+    text-align: center;
+    line-height: 200px;
+    font-size: 160px;
+}
+
+#mensagem{
+    color:red;
+ 
+
+}
+
+.campo:hover {
+    background-color: #F1D2E3;
+    
+}
+
+
+/*============== Botão ============== */
+input{
+    color: #ffffff;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;  
+    margin-left: 150px;
+    background-color:#CD1076;
+    font-family: 'Arial', cursive;
+    position: fixed;
+}
+input:hover{
+    color: #CD1076;
+	background-color: #FFFFFF;
+}
+
