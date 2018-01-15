@@ -10,32 +10,39 @@ function clic(posicao_jogada){
 
     if ( valida_posicao[posicao_jogada] == 0 ){ 
             if ( jogador == 1 ){ 
-                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("bola.jpg")'; 
+                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("circ.png")'; 
                 marca_posicao[posicao_jogada] = "bola"; 
             }else
             if (jogador == 2 ){ 
-                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("xis.jpg")'; 
+                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("x.png")'; 
                 marca_posicao[posicao_jogada] = "xis";
             }
             valida_posicao[posicao_jogada] = 1; 
-        }else
+        }
+        else{
             jogada = false; 
-        
-        if ( jogada == false ) 
-            alert("Esta casa ja esta marcada!\nEscolha outra!");
-        else
-        if ( jogada == true ){ 
-            if (jogador == 1) 
-            jogador = 2;    
-            else           
-            jogador = 1;   
+            exibeMensagem("Este campo já esta marcado!<br/> Escolha outro!");
         }
         
-        testa_fim_de_jogo(); 
+        if(jogada == true){
+            trocaJogar();
+        }        
+        
+        testaFimJogo(); 
         
     }
 
-function testa_fim_de_jogo(){
+
+function trocaJogar(){
+        if (jogador == 1){
+            jogador = 2;    
+        } 
+        else{
+            jogador = 1;   
+        }           
+}
+
+function testaFimJogo(){
 
     
     if ( valida_posicao[1] == 1 && valida_posicao[2] == 1 && valida_posicao[3] == 1 ) {
@@ -70,24 +77,31 @@ function testa_fim_de_jogo(){
             }
         
             if (bola == 0 && xis == 0) 
-                document.getElementById("mensagem").innerHTML = "Deu Velha! Tente Novamente!";
+                exibeMensagem("Deu Velha!<br /> Tente Novamente!");
                        
             else 
             if (bola == 1 && xis == 0) 
-                document.getElementById("mensagem").innerHTML = "Jogador *O* Venceu!";
+                exibeMensagem("Jogador *O* Venceu!");
                         
             else 
             if (bola == 0 && xis == 1) 
-            document.getElementById("mensagem").innerHTML = "Jogador *X* Venceu!";
+                exibeMensagem("Jogador *X* Venceu!");
                        
             else 
             if (bola == 1 && xis == 1) 
-            document.getElementById("mensagem").innerHTML = "Empate!Tente Novamente!";
+            exibeMensagem("Empate!Tente Novamente!");
             
-    } } } 
+        } 
+    } 
+} 
 
 }
 
+function exibeMensagem(mensagem){
+    var elemento = document.getElementById("mensagem");
+    elemento.innerHTML = mensagem;
+    document.getElementById("painel-mensagem").style.visibility = "visible";
+}
 
 
 

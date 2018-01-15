@@ -1,47 +1,50 @@
-
+body{
+    background: #141010;
+}
 #jogo{
-    width:603px;
-    height:603px;
-    border:solid 3px;
+    width: 21.2em;
+    height: 21.2em;
+    margin: 1em auto; 
+    border: 0.1em solid;
     color: #CD1076;
 }
 
 #title{
+    width: 9.5em;
     color: #CD1076;
-    margin-left: 150px;;
+    border: 1px solid #000000;
+    margin: 1.5em auto 0;
     text-shadow: 3px 2p #ffffff;
     font-family: 'Patrick Hand SC', cursive;
    
 }
 
 .corpo{
-    margin-left: 600px;
+    margin: auto;
+    width: 35em;
+    /* border: 1px solid #000000; */
 }
 
 .linha{
-    height:200px;
+    height: 7em;
     border-bottom:solid 1px;
 }
 
 /*============== Campo ============== */
 .campo{
-    width:200px;
+    width:7em;
     height:100%;
     border-right:solid 1px;
     float:left;
     text-align: center;
-    line-height: 200px;
-    font-size: 160px;
-}
-
-#mensagem{
-    color:red;
- 
-
+    line-height: 7em;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;    
 }
 
 .campo:hover {
-    background-color: #F1D2E3;
+    background-color: #CD1076;
     
 }
 
@@ -49,17 +52,36 @@
 /*============== Botão ============== */
 input{
     color: #ffffff;
-    width: 300px;
-    height: 50px;
+    width: 100%;
+    height: 2.5em;
     border-radius: 5px;
     font-size: 18px;  
-    margin-left: 150px;
+    margin: 1em auto;
     background-color:#CD1076;
     font-family: 'Arial', cursive;
-    position: fixed;
 }
 input:hover{
     color: #CD1076;
-	background-color: #FFFFFF;
+	background-color: rgb(221, 140, 183);
 }
 
+#painel-mensagem{
+    visibility: hidden;
+    margin: 1em auto 0;
+    border:1px solid #000000;
+    height: 3em;
+    width: 100%;
+    background: #ffffff;
+}
+    #painel-mensagem >div{
+        width: 0.5em;
+        height: 3em;
+        float: left;
+        background: #CD1076;
+    }
+    #mensagem{
+        margin: 0.5em 0 0 1em;
+        color:#CD1076!important;
+        font-size: 1em;
+        font-family: 'Arial', cursive;
+    }
