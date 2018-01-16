@@ -1,112 +1,138 @@
-var jogador = 1; 
-var jogada = false; 
+var jogador = 1;  
+var jogadas = [void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0];
+var posicoesJogo = [0,0,0,0,0,0,0,0,0];
+var fimJogo=false;
+var placar = [0,0];
 
-var valida_posicao = new Array(0,0,0,0,0,0,0,0,0,0); 
-var marca_posicao = new Array(); 
+function carregaPlacar()
+{
+    document.getElementById("placarO").innerText = placar[0];
+    document.getElementById("placarX").innerText = placar[1];
+}
 
-function clic(posicao_jogada){  
+function limpaTela()
+{
+    jogador = 1;  
+    jogadas = [void 0,void 0,void 0,void 0,void 0,void 0,void 0,void 0];
+    posicoesJogo = [0,0,0,0,0,0,0,0,0];
+    fimJogo=false;
+    document.getElementById("campo"+0).style.backgroundImage = 'none';
+    document.getElementById("campo"+1).style.backgroundImage = 'none';
+    document.getElementById("campo"+2).style.backgroundImage = 'none';
+    document.getElementById("campo"+3).style.backgroundImage = 'none';
+    document.getElementById("campo"+4).style.backgroundImage = 'none';
+    document.getElementById("campo"+5).style.backgroundImage = 'none';
+    document.getElementById("campo"+6).style.backgroundImage = 'none';
+    document.getElementById("campo"+7).style.backgroundImage = 'none';
+    document.getElementById("campo"+8).style.backgroundImage = 'none';
+}
 
-    jogada = true; 
-
-    if ( valida_posicao[posicao_jogada] == 0 ){ 
-            if ( jogador == 1 ){ 
-                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("circ.png")'; 
-                marca_posicao[posicao_jogada] = "bola"; 
-            }else
-            if (jogador == 2 ){ 
-                document.getElementById("campo"+posicao_jogada).style.backgroundImage = 'url("x.png")'; 
-                marca_posicao[posicao_jogada] = "xis";
-            }
-            valida_posicao[posicao_jogada] = 1; 
-        }
-        else{
-            jogada = false; 
-            exibeMensagem("Este campo já esta marcado!<br/> Escolha outro!");
-        }
-        
-        if(jogada == true){
-            trocaJogar();
-        }        
-        
-        testaFimJogo(); 
-        
+function jogo(posicaoJogada) 
+{
+    if(fimJogo)
+    {
+        limpaTela();    
     }
+    carregaPlacar();
+    ocultarMensagem();
+    if(posicoesJogo[posicaoJogada]==0)
+    {
+        if(jogador==1)
+        {
+            document.getElementById("campo"+posicaoJogada).style.backgroundImage = 'url("p1.png")';
+            posicoesJogo[posicaoJogada]="p1";
+        }else
+        {
+            document.getElementById("campo"+posicaoJogada).style.backgroundImage = 'url("p2.png")';
+            posicoesJogo[posicaoJogada]="p2";
+        }        
+        trocaJogador();
+        validaFimJogo();
+    }else
+    {
+        exibeMensagem("Este campo já esta marcado!<br/> Escolha outro!");
+    }
+}
 
-
-function trocaJogar(){
-        if (jogador == 1){
-            jogador = 2;    
-        } 
+function validaFimJogo()
+{
+    carregaJogadas();   
+    
+    var vencedor;
+    for(i=0;i<8;i++)
+    {
+        vencedor = validaVencedor(jogadas[i]);
+        if(vencedor!=0)
+        {
+            break;
+        }
+    }
+    if(vencedor != 0){
+        if(vencedor == "p1"){
+            exibeMensagem("PARABÉNS!<br /> Jogador - O - Venceu!");
+            fimJogo=true;
+            placar[0]++;
+        }
         else{
-            jogador = 1;   
-        }           
+            exibeMensagem("PARABÉNS!<br /> Jogador - X - Venceu!");
+            fimJogo=true;
+            placar[1]++;
+        }
+
+    }
+    if(posicoesJogo[0]!=0 && posicoesJogo[1]!=0 && posicoesJogo[2]!=0 &&
+        posicoesJogo[3]!=0 && posicoesJogo[4]!=0 && posicoesJogo[5]!=0 && 
+        posicoesJogo[6]!=0 && posicoesJogo[7]!=0 && posicoesJogo[8]!=0)
+    {
+        exibeMensagem("Ops...Deu Velha!<br /> Tente Novamente!");
+        fimJogo=true;
+    }
+}
+function carregaJogadas()
+{
+    jogadas[0]=[0,1,2];
+    jogadas[1]=[3,4,5];
+    jogadas[2]=[6,7,8];
+    jogadas[3]=[0,4,8];
+    jogadas[4]=[2,4,6];
+    jogadas[5]=[0,3,6];
+    jogadas[6]=[1,4,7];
+    jogadas[7]=[2,5,8];
+
+}
+function validaVencedor(jogada){
+    if(posicoesJogo[jogada[0]] == posicoesJogo[jogada[1]] && posicoesJogo[jogada[1]] == posicoesJogo[jogada[2]]){
+        if(posicoesJogo[jogada[0]] != 0){
+            return posicoesJogo[jogada[0]];
+        }
+        return 0;
+    }
+    else{
+        return 0;
+    }
 }
 
-function testaFimJogo(){
-
-    
-    if ( valida_posicao[1] == 1 && valida_posicao[2] == 1 && valida_posicao[3] == 1 ) {
-    if ( valida_posicao[4] == 1 && valida_posicao[5] == 1 && valida_posicao[6] == 1 ) {
-    if ( valida_posicao[7] == 1 && valida_posicao[8] == 1 && valida_posicao[9] == 1 ) {
-    
-        var bola = 0; 
-        var xis = 0; 
-        
-        
-        if (    marca_posicao[1] == "bola" && marca_posicao[2] == "bola" && marca_posicao[3] == "bola" || 
-                marca_posicao[4] == "bola" && marca_posicao[5] == "bola" && marca_posicao[6] == "bola" || 
-                marca_posicao[7] == "bola" && marca_posicao[8] == "bola" && marca_posicao[9] == "bola" ||  
-                marca_posicao[1] == "bola" && marca_posicao[4] == "bola" && marca_posicao[7] == "bola" ||  
-                marca_posicao[2] == "bola" && marca_posicao[5] == "bola" && marca_posicao[8] == "bola" ||  
-                marca_posicao[3] == "bola" && marca_posicao[6] == "bola" && marca_posicao[9] == "bola" ||  
-                marca_posicao[1] == "bola" && marca_posicao[5] == "bola" && marca_posicao[9] == "bola" ||  
-                marca_posicao[3] == "bola" && marca_posicao[5] == "bola" && marca_posicao[7] == "bola" ){
-                bola = 1; 
-            }
-        
-      
-        if (    marca_posicao[1] == "xis" && marca_posicao[2] == "xis" && marca_posicao[3] == "xis" ||  
-                marca_posicao[4] == "xis" && marca_posicao[5] == "xis" && marca_posicao[6] == "xis" ||  
-                marca_posicao[7] == "xis" && marca_posicao[8] == "xis" && marca_posicao[9] == "xis" ||  
-                marca_posicao[1] == "xis" && marca_posicao[4] == "xis" && marca_posicao[7] == "xis" ||  
-                marca_posicao[2] == "xis" && marca_posicao[5] == "xis" && marca_posicao[8] == "xis" ||  
-                marca_posicao[3] == "xis" && marca_posicao[6] == "xis" && marca_posicao[9] == "xis" ||  
-                marca_posicao[1] == "xis" && marca_posicao[5] == "xis" && marca_posicao[9] == "xis" ||  
-                marca_posicao[3] == "xis" && marca_posicao[5] == "xis" && marca_posicao[7] == "xis" ){
-                xis = 1; 
-            }
-        
-            if (bola == 0 && xis == 0) 
-                exibeMensagem("Deu Velha!<br /> Tente Novamente!");
-                       
-            else 
-            if (bola == 1 && xis == 0) 
-                exibeMensagem("Jogador *O* Venceu!");
-                        
-            else 
-            if (bola == 0 && xis == 1) 
-                exibeMensagem("Jogador *X* Venceu!");
-                       
-            else 
-            if (bola == 1 && xis == 1) 
-            exibeMensagem("Empate!Tente Novamente!");
-            
-        } 
+function trocaJogador()
+{
+    if (jogador == 1){
+        jogador = 2;    
     } 
-} 
-
+    else{
+        jogador = 1;   
+    }           
 }
 
-function exibeMensagem(mensagem){
+function exibeMensagem(mensagem) {
     var elemento = document.getElementById("mensagem");
     elemento.innerHTML = mensagem;
     document.getElementById("painel-mensagem").style.visibility = "visible";
 }
 
+function ocultarMensagem()
+{
+    document.getElementById("painel-mensagem").style.visibility = "hidden";
+}
 
-
-
-
-
-
-
+window.onload = function(e){
+    carregaPlacar();
+}
